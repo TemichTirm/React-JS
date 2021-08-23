@@ -1,0 +1,16 @@
+body {
+  background-image: url("./images/bacground_picture.jpg");
+  background-size: cover;
+  height: 100%;
+}
+
+.mainWrapper {
+  width: 60%;
+  height: 620px;
+  margin: 10px auto 10px auto;
+  align-content: center;
+  align-items: center;
+  border: 1px solid wheat;
+  display:block; 
+  background-color:rgba(0, 0, 0, 0.5);
+}
