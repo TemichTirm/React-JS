@@ -1,41 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MessageList from "./MessageList";
+import MessageInput from "./MessageInput";
 import "./App.css";
 
-function App() {
-  const [inputMessage, setInputMessage] = useState({id: 0, author: "", text:"", time: Date.now});
-  //const [messagesArray, setMessagesArray] = useState([]);
-  const [messageList, setMessageList] = useState([{id: 0, author: "", text:"", time: Date.now}]);
+const CHAT_BOT_NAME = "Chat-bot ROBOT";
+const CURRENT_AUTHOR = "Тирмяев Артём";
+const BOT_MESSAGE = "✔️ Сообщение успешно отправлено!"
+const DELAY_BOT_SEND_MESSAGE = 1500;  // В милисекундах
 
-  const onSendMessage = () => {
-    setMessageList((prev) => [...prev, inputMessage]);
-    setInputMessage({});
+function App() {
+  
+  const [messagesArray, setMessagesArray] = useState([]);
+
+  useEffect(() => {
+      document.getElementsByClassName("messageList")[0].scrollTop = 9999;
+  });
+  
+  const onSendMessage = (inputMessage) => {
+    
+      setMessagesArray((prev) => [...prev, {
+        author: CURRENT_AUTHOR,
+        text: inputMessage,
+        time: new Date().toLocaleString(),      
+      }]);
+      
+      setTimeout(() => {
+        setMessagesArray((prev) => [...prev, {
+          author: CHAT_BOT_NAME,
+          text: BOT_MESSAGE,
+          time: new Date().toLocaleString(),      
+        }]);        
+      }, DELAY_BOT_SEND_MESSAGE)
   };
 
   return (
     <div className="mainWrapper">
-      <MessageList messageList={messageList}></MessageList>
-
-      <div className="inputWrapper">
-        <input
-          className="input"
-          value={inputMessage.text}
-          onChange={(e) => {setInputMessage({
-            id: messageList[messageList.length-1].id + 1,
-            author: "Me",
-            text: e.target.value,
-            time: Date.now
-            })}
-          }
-          onKeyDown={({ key }) => {
-            if (key === "Enter") {
-              console.log("Enter");
-              onSendMessage();
-            }
-          }}
-        />
-        <button onClick={onSendMessage}>Отправить</button>
-      </div>
+      <MessageList messagesArray={messagesArray} chatBotName={CHAT_BOT_NAME}></MessageList>
+      <MessageInput onSendMessage={onSendMessage}></MessageInput>
     </div>
   );
 }
