@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MessageList from "./MessageList";
 import MessageInput from "./MessageInput";
+import ChatList from "./ChatList";
 import "./App.css";
 
 const CHAT_BOT_NAME = "Chat-bot ROBOT";
@@ -11,7 +12,6 @@ const DELAY_BOT_SEND_MESSAGE = 1500;  // В милисекундах
 function App() {
   
   const [messagesArray, setMessagesArray] = useState([]);
-  const [chatsArray, setChatsArray] = useState([]);
 
   useEffect(() => {
       document.getElementsByClassName("messageList")[0].scrollTop = 9999;
@@ -35,9 +35,16 @@ function App() {
   };
 
   return (
-    <div className="mainWrapper">
-      <MessageList messagesArray={messagesArray} chatBotName={CHAT_BOT_NAME}></MessageList>
-      <MessageInput onSendMessage={onSendMessage}></MessageInput>
+    <div className="appWrapper">
+      <div className="appContent">
+        <div className="chatListWrapper">
+          <ChatList></ChatList>
+        </div>
+        <div className="messageFieldWrapper">
+          <MessageList messagesArray={messagesArray} chatBotName={CHAT_BOT_NAME}></MessageList>
+          <MessageInput onSendMessage={onSendMessage}></MessageInput>
+        </div>
+      </div>
     </div>
   );
 }

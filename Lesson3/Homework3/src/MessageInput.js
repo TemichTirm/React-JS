@@ -7,17 +7,17 @@ import "./MessageInput.css"
 
 const useStyles = makeStyles((theme) => ({
     button:{
-        margin: "0 10px",
+        flex: "0 0 130px"
     },
     input: {
         color: "secondary",
-        margin: "0 10px",
         backgroundColor: "burlywood",
         borderRadius: "5px",
-        width: "70%",
+        flex: "1 1 auto",
         padding: "0 5px",
+        margin: "0 20px 0 0",
         fontSize: "small",
-    }
+    },
 }))
 
 
@@ -50,9 +50,10 @@ const MessageInput = ({onSendMessage}) => {
                     setInputMessage(e.target.value);
                     }
                 }
-                onKeyDown={({ key }) => {
-                    if (key === "Enter") {
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") {
                         sendMessageAndClearInput();
+                        e.preventDefault();
                     }
                 }}
             />

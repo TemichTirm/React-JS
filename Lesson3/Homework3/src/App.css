@@ -1,16 +1,35 @@
-body {
-  background-image: url("./images/bacground_picture.jpg");
-  background-size: cover;
+html, body {
   height: 100%;
+  margin: 0;
 }
 
-.mainWrapper {
-  width: 60%;
-  height: 620px;
-  margin: 10px auto 10px auto;
-  align-content: center;
+.appWrapper {
+  background-image: url("./images/bacground_picture.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  border: 1px solid wheat;
-  display:block; 
+}
+
+.appContent {
   background-color:rgba(0, 0, 0, 0.5);
+  height: 95%;
+  width: 95%;
+  display: flex;
+  border: 1px solid wheat;
+}
+
+.chatListWrapper{
+  flex: 0 0 250px;
+  border-right: 1px solid wheat;
+  display: flex;
+}
+
+.messageFieldWrapper {
+  flex: 1 1 auto; 
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }

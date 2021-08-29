@@ -1,11 +1,11 @@
 .messageList {
     box-sizing: border-box;
-    height: 90%;
-    width: 100%;
+    width: auto;
     color: lavenderblush;
     overflow-y: auto;
     scroll-behavior: smooth;
-    border-bottom: 1px solid black;    
+    flex: 1 1 auto;    
+    border-bottom: 1px solid wheat;    
 }
 
 .myMessageBlock {
