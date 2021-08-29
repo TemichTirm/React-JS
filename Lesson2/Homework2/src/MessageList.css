@@ -1,0 +1,51 @@
+.messageList {
+    box-sizing: border-box;
+    height: 90%;
+    width: 100%;
+    color: lavenderblush;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    border-bottom: 1px solid black;    
+}
+
+.myMessageBlock {
+    margin: 0 5px 5px auto;
+    text-align: right;
+    width: 100%;
+    overflow:hidden;
+}
+
+.botMessageBlock {
+    margin: 0 0 5px 5px;
+}
+
+.botMessageDate, .myMessageDate {
+    font-style: italic;
+    font-size: x-small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(255, 238, 160);
+}
+
+.botMessageInfo, .myMessageInfo {
+    font-style: italic;
+    font-size: small;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(49, 255, 66);
+}
+
+.botMessage, .myMessage {
+    border-radius: 10px;
+    padding: 3px 10px 7px 10px;
+    background-color: rgba(122, 122, 122, 0.3);
+    width:max-content;    
+    max-width: 50%;
+}
+
+.myMessage  {
+    margin: 0 0 0 auto;
+    margin-right: 5px;
+    height:fit-content;
+    display: inline-block;
+    flex-wrap:wrap;
+    word-wrap: break-word;
+}

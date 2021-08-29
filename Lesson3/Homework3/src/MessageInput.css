@@ -1,0 +1,10 @@
+.inputWrapper {
+    flex: 0 0 75px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    margin: 0 15px;
+}
+
